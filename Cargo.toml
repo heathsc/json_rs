@@ -1,5 +1,5 @@
 [package]
-name = "rs_json"
+name = "json_rs"
 version = "0.1.0"
 authors = ["Simon Heath <simon.heath@gmail.com>"]
 edition = "2018"
