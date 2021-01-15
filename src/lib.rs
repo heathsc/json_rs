@@ -5,14 +5,14 @@
  * This is not intended to be a clone of the original JSMN library and has several philosophical differences
  * Major differences:
  *   - Tokens are stored in a resizeable Rust array 
- *   - strict parsing is always enforced (inended to be fully compliant)
+ *   - strict parsing is always enforced (intended to be fully compliant)
  *   - handle UTF8 encoded input
  * 
  * The output tokens are similar to those output from JSMN with the following differences
  *   - The start and end parameters form a closed range for all apart from Strings which use an open range (to allow for an empty string)
  *   - JSON primitives are split into Numbers, Bool and Null
  *   - Parsing of numbers strictly follows the JSON standard
- *   - true / false /null are checked in their entirety
+ *   - true / false / null are checked in their entirety
  *   - more basic grammar checking is performed
  */
 
@@ -32,7 +32,7 @@ pub struct JTok {
 	pub tok_type: JType,
 	pub start: usize, // Start position in input array
 	pub end: usize,   // End position in input array
-	size: usize,      // Number of items in object / array
+	pub size: usize,      // Number of items in object / array
 }
 
 pub struct JParse<'a> {
