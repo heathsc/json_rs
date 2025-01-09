@@ -87,6 +87,10 @@ impl<'a> JParse<'a> {
     pub fn n_tokens(&self) -> usize {
         self.tokens.len()
     }
+    pub fn text(&self) -> &'a str {
+        self.text
+    }
+    
     pub fn value_ok(&self, i: usize, c: char) -> Result<(), JErr> {
         if self.state == JState::StartObject
             || self.state == JState::AfterValue
