@@ -16,7 +16,7 @@
  *   - more basic grammar checking is performed
  */
 
-use std::{iter, str};
+use std::{iter, str, fmt};
 
 #[derive(Debug, Clone, Copy, PartialEq)]
 pub enum JType {
@@ -32,6 +32,15 @@ pub enum JType {
 pub enum JErr {
     Invalid(usize, char),
     EndOfInput,
+}
+
+impl fmt::Display for JErr {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match self {
+            Self::EndOfInput => write!(f, "JSON incomplete - end of input reached"),
+            Self::Invalid(i, c) => write!(f, "JSON error found at character {c} position {i}"),
+        }
+    }
 }
 
 #[derive(Debug, PartialEq, Clone, Copy)]
